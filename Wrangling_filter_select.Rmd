@@ -244,8 +244,13 @@ There are only three Harry Potter movies in this data set. Their names are "Harr
 ### 4. What is the highest budget for a movie that is an Animation or Comedy with at least 100 votes?
 
 ```{r}
-
+movies %>%
+  filter(votes>= 100 &  (Comedy == 1 | Animation == 1)) %>%
+  select(title, budget, votes) %>%
+  arrange(desc(budget))
 ```
+
+Using the filters Animation or Comedy, with at least 100 votes, that recieved the highest budget we get the answer "Wild Wild West." 
 
 ### 5. Is your favorite movie in the dataset? What other questions could you ask or answer using `filter()`, `select()`, and `arrange()`?
 
